@@ -39,9 +39,9 @@ class GCalAppointment:
             if type(phone_number) is str:
                 if phone_number[:2] is '01':
                     return '+6' + phone_number
-                elif phone_number[:2] is '60':
+                elif phone_number[:3] is '601':
                     return '+' + phone_number
-                elif phone_number[:2] is '+6':
+                elif phone_number[:4] is '+601':
                     return phone_number
                 else:
                     raise ValueError('Phone number is invalid. Please make sure it starts with 01, 601 or +601.')
@@ -51,6 +51,10 @@ class GCalAppointment:
         else:
             print('Warning! Phone number sanitization is only available for Malaysian phone numbers.')
             return phone_number
+
+    @staticmethod
+    def __sanitise_time(appointment_time):
+        pass
 
 
 

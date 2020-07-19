@@ -31,6 +31,10 @@ python3 main.py 'WaveshareGSM' '[1 day, 3 days, 1 week]'
 ### gcalsms module
 Coming soon!
 
+## Contributing
+### Phone number sanitization
+TODO
+
 ## Tests
 Coming soon!
 

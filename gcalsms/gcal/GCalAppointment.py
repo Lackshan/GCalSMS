@@ -48,8 +48,21 @@ class GCalAppointment:
             else:
                 raise TypeError('Phone number is not a string')
 
+        if region is 'GB':
+            if type(phone_number) is str:
+                if phone_number[:2] is '07':
+                    return '+44' + phone_number[2:]
+                elif phone_number[:3] is '447':
+                    return '+' + phone_number
+                elif phone_number[:4] is '+447':
+                    return phone_number
+                else:
+                    raise ValueError('Phone number is invalid. Please make sure it starts with 01, 601 or +601.')
+            else:
+                raise TypeError('Phone number is not a string')
+
         else:
-            print('Warning! Phone number sanitization is only available for Malaysian phone numbers.')
+            print('Warning! Invalid region. Phone number has not been sanitized.')
             return phone_number
 
     @staticmethod

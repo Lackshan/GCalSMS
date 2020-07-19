@@ -12,10 +12,15 @@ class TestInit:
         """
         pass
 
-    def test_unsupported_region(self):
-        x = gcalsms.gcal.GCalAppointment('7529847625', 'UNSUPPORTED_REGION', 'time1', 'time2', 'Hello World!')
-        assert x.phone_number == '7529847625'
+    def test_phone_number_empty_none(self):
+        pass
 
+
+class TestTime:
+    pass
+
+
+class TestPhoneNumberRegion:
     def test_invalid_phone_number(self):
         """
         Tests if method raises a ValueError when given a phone_number that does not correspond to the given region.
@@ -27,6 +32,10 @@ class TestInit:
     def test_phone_number_type(self):
         with pytest.raises(TypeError):
             x = gcalsms.gcal.GCalAppointment(197584375, 'MY', 'time1', 'time2', 'Hello World!')
+
+    def test_unsupported_region(self):
+        x = gcalsms.gcal.GCalAppointment('7529847625', 'UNSUPPORTED_REGION', 'time1', 'time2', 'Hello World!')
+        assert x.phone_number == '7529847625'
 
     def test_phone_number_region_my_1(self):
         x = gcalsms.gcal.GCalAppointment('0197584375', 'MY', 'time1', 'time2', 'Hello World!')

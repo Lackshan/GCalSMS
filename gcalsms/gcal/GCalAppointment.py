@@ -1,7 +1,7 @@
 class GCalAppointment:
 
     """
-    A class that is a facade for Google Calender appointments
+    A class that is a facade for Google Calendar appointments
     """
     phone_number = ''
     region = ''
@@ -18,8 +18,14 @@ class GCalAppointment:
         :param end_time:
         :param message_text: str, optional, defaults to ''
         """
+        if phone_number is '' or None:
+            raise ValueError('phone_number cannot be an empty string or None.')
         if region is '' or None:
             raise ValueError('region cannot be an empty string or None.')
+        if start_time is '' or None:
+            raise ValueError('start_time cannot be an empty string or None.')
+        if end_time is '' or None:
+            raise ValueError('end_time cannot be an empty string or None.')
 
         self.phone_number = self.__sanitize_phone_number(phone_number, region)
         self.region = region
